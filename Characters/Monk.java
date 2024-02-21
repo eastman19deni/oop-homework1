@@ -3,10 +3,8 @@ import java.util.ArrayList;
 public class Monk extends BaseCharacter{
     int faith;
 
-    public Monk(int level, String name, int health, int strength, int stamina, int i, boolean b, Integer x, Integer y,
-            int faith) {
-        super(level, name, health, strength, stamina, i, b, x, y);
-        this.faith = faith;
+    public Monk(String name,Integer x, Integer y) {
+        super(1, name, 50, 30, 20, 20, true, x, y);
     }
 
     public int getFaith() {

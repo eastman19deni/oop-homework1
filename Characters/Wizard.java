@@ -3,10 +3,10 @@ import java.util.List;
 
 public class Wizard extends BaseCharacter{
 
-    public Wizard(int level, String name, int health, int strength, int stamina, int i, boolean b, Integer x,
-            Integer y) {
-        super(level, name, 50, 70, 50, 40, true, x, y);
-        //TODO Auto-generated constructor stub
+    int mana;
+
+    public Wizard(String name,Integer x, Integer y) {
+        super(1, name, 50, 30, 20, 20, true, x, y);
     }
 
 	public String toString() {

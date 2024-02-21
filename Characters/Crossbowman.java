@@ -8,11 +8,8 @@ public class Crossbowman extends BaseCharacter {
     int arrows;
     int countArrow;
 
-    public Crossbowman(int level, String name, int health, int strength, int stamina, int i, boolean b, Integer x,
-            Integer y, int arrows) {
-        super(level, name, health, strength, stamina, i, b, x, y);
-        this.arrows = arrows;
-        countArrow = 10;
+    public Crossbowman(String name, Integer x, Integer y) {
+        super(1, name, 60, 50, 40, 20, true, x, y);
     }
 
     public void death(BaseCharacter target) {

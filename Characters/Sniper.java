@@ -4,10 +4,10 @@ import java.util.List;
 
 
 public class Sniper extends BaseCharacter implements Bows{
-
-    public Sniper(int level, String name, int health, int strength, int stamina, int i, boolean b, Integer x,
-            Integer y, int arrows) {
-        super(10, name, 50, 70, 60, 40, true, x, y);
+    int bullets;
+    public Sniper(String name, Integer x, Integer y) {
+        super(1, name, 60, 50, 40, 20, true, x, y);
+        this.bullets = bullets;
     }
 
     @Override

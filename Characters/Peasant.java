@@ -1,10 +1,9 @@
 import java.util.ArrayList;
 
 public class Peasant extends BaseCharacter {
-    public Peasant(int level, String name, int health, int strength, int stamina, int i, boolean b, Integer x,
-            Integer y) {
-        super(level, name, health, strength, stamina, i, b, x, y);
-
+    
+    public Peasant(String name, Integer x, Integer y) {
+        super(1, name, 70, 60, 40, 40, true, x, y);
     }
 
     @Override

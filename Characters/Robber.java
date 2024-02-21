@@ -1,11 +1,10 @@
 import java.util.ArrayList;
 
 public class Robber extends BaseCharacter{
+    int fortune;
 
-    public Robber(int level, String name, int health, int strength, int stamina, int i, boolean b, Integer x,
-            Integer y) {
-        super(1, name, 80, 60, 75, 30, true, x, y);
-        
+    public Robber(String name, Integer x, Integer y) {
+        super(1, name, 70, 60, 40, 40, true, x, y);
     }
 
     @Override

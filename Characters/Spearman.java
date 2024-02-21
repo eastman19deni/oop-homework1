@@ -3,10 +3,8 @@ import java.util.List;
 
 public class Spearman extends BaseCharacter{
 
-    public Spearman(int level, String name, int health, int strength, int stamina, int i, boolean b, Integer x,
-            Integer y) {
-        super(level, name, health, strength, stamina, i, b, x, y);
-        //TODO Auto-generated constructor stub
+    public Spearman(String name, Integer x, Integer y) {
+        super(1, name, 70, 60, 40, 40, true, x, y);
     }
 
     @Override
