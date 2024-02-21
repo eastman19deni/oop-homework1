@@ -9,7 +9,7 @@ public class Wizard extends BaseCharacter{
         //TODO Auto-generated constructor stub
     }
 
-    public String toString() {
+	public String toString() {
         return String.format("Class: %s  Name: %s", this.getClass().getSimpleName(), getName());
     }
 
