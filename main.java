@@ -27,10 +27,10 @@
  * Меткость       |    скорость стрельбы|       Интелект        |
  * --------------------------------------------------------------
  */
-import Warriors.*;
-public class main {
 
+
+public class main {
     public static void main(String[] args){
-        Warrior warrior =new Warrior(fillname(),0,0);
+
     }
 }
