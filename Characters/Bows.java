@@ -14,7 +14,7 @@ abstract public class Bows extends BaseCharacter {
     public void setArrows(Integer arrows) {this.arrows = arrows;}
  
 
-    public void attac(BaseCharacter target){
+    public void attack(BaseCharacter target){
         int damage = r.nextInt(5);
         this.arrows--;
         target.getDamage(damage);
@@ -23,7 +23,7 @@ abstract public class Bows extends BaseCharacter {
     public void step(List<BaseCharacter> list, List<BaseCharacter> friends) {
 
         if (!isDead() || getArrows() <= 0) return;
-            attac(nearestEnemy(list));
+            attack(nearestEnemy(list));
             System.out.println(toString());
 
     }
