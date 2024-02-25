@@ -26,7 +26,7 @@ public abstract class BaseCharacter implements MyInterface{
         this.position = new Position(0, 0);  // Assuming a default position at (0, 0)
     }
 
-    public BaseCharacter(int id, String name2, int i, int j, String string) {
+    public BaseCharacter(String name2, int i, int j) {
         //TODO Auto-generated constructor stub
     }
 
@@ -35,9 +35,9 @@ public abstract class BaseCharacter implements MyInterface{
     }
 
     public void getDamage(int damage) {
-        if (this.health - damage > 0) {
-            this.health -= damage;
-        }
+        this.health -= damage;
+        if (health < 0) health = 0; 
+        if(health >= maxHealth) health = maxHealth;
     }
 
     public void attack(BaseCharacter target) {
@@ -100,5 +100,11 @@ public abstract class BaseCharacter implements MyInterface{
         if (getHealth() < 0) {
             System.out.println("Your hero die");
         }
+    }
+    public boolean isDead(){
+        if (this.getHealth() <= 0) {
+            return false;
+        }
+        return true;
     }
 }
