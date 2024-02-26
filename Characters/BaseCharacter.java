@@ -98,15 +98,15 @@ public abstract class BaseCharacter implements MyInterface{
     //     return nearest;
     // }
     public BaseCharacter nearestEnemy(List<BaseCharacter> targets){
-        Queue<BaseCharacter> target = new LinkedList<>();
+        BaseCharacter target = null;
         double minDistance = 10;
         for(BaseCharacter hero : targets){
             if(position.getDistanse(hero) < minDistance && hero.isDead()){
                 minDistance = position.getDistanse(hero);
-                target.add(hero);
+                target = hero;
             }
         }
-        return target.remove();
+        return target;
     }
 
     protected void death() {
