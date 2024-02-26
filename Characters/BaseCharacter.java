@@ -1,4 +1,6 @@
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Random;
 
 
@@ -77,23 +79,34 @@ public abstract class BaseCharacter implements MyInterface{
         return new String(this.getName() + ", Health: " + this.getHealth() + ", Stamina: " + this.getStamina());
     }
 
-    public BaseCharacter nearestEnemy(List<BaseCharacter> targets) {
-        if (targets.isEmpty()) {
-            return null; // Handle empty list case
-        }
+    // public BaseCharacter nearestEnemy(List<BaseCharacter> targets) {
+    //     if (targets.isEmpty()) {
+    //         return null; // Handle empty list case
+    //     }
 
-        BaseCharacter nearest = null;
-        double minDistance = Double.MAX_VALUE;
+    //     BaseCharacter nearest = null;
+    //     double minDistance = Double.MAX_VALUE;
 
-        for (BaseCharacter hero : targets) {
-            double distance = getDistanceTo(hero);
-            if (distance < minDistance) {
-                minDistance = distance;
-                nearest = hero;
+    //     for (BaseCharacter hero : targets) {
+    //         double distance = getDistanceTo(hero);
+    //         if (distance < minDistance && hero.isDead()) {
+    //             minDistance = distance;
+    //             nearest = hero;
+    //         }
+    //     }
+
+    //     return nearest;
+    // }
+    public BaseCharacter nearestEnemy(List<BaseCharacter> targets){
+        Queue<BaseCharacter> target = new LinkedList<>();
+        double minDistance = 10;
+        for(BaseCharacter hero : targets){
+            if(position.getDistanse(hero) < minDistance && hero.isDead()){
+                minDistance = position.getDistanse(hero);
+                target.add(hero);
             }
         }
-
-        return nearest;
+        return target.remove();
     }
 
     protected void death() {
