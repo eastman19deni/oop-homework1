@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public interface MyInterface {
     String enemy = null;
@@ -9,6 +10,6 @@ public interface MyInterface {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'nearestEnemy'");
     }
-    
+    void step(List<BaseCharacter> list,List<BaseCharacter> friends);
     
 }
