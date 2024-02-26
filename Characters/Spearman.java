@@ -42,5 +42,11 @@ public class Spearman extends BaseCharacter{
         // TODO Auto-generated method stub
         
     }
+
+    @Override
+    public void step(List<BaseCharacter> list, List<BaseCharacter> friends) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'step'");
+    }
     
 }

@@ -14,6 +14,7 @@ public abstract class BaseCharacter implements MyInterface{
     protected int maxHealth;
     protected static Random r;
     protected int powerHit;
+    protected int speed;
     
     static{
         BaseCharacter.r = new Random();
@@ -30,6 +31,10 @@ public abstract class BaseCharacter implements MyInterface{
 
     public BaseCharacter(String name2, int i, int j) {
         //TODO Auto-generated constructor stub
+    }
+
+    public int getSpeed(){
+        return speed;
     }
 
     protected int getHealth() {
@@ -114,6 +119,7 @@ public abstract class BaseCharacter implements MyInterface{
             System.out.println("Your hero die");
         }
     }
+    
     public boolean isDead(){
         if (this.getHealth() <= 0) {
             return false;

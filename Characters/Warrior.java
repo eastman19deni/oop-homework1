@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Warrior extends BaseCharacter{
 
@@ -33,6 +34,12 @@ public class Warrior extends BaseCharacter{
 
     @Override
     public void step(ArrayList<BaseCharacter> enemy) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'step'");
+    }
+
+    @Override
+    public void step(List<BaseCharacter> list, List<BaseCharacter> friends) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'step'");
     }

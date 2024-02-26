@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Monk extends BaseCharacter{
     int faith;
@@ -37,5 +38,11 @@ public class Monk extends BaseCharacter{
     public void step(ArrayList<BaseCharacter> enemy) {
         // TODO Auto-generated method stub
         
+    }
+
+    @Override
+    public void step(List<BaseCharacter> list, List<BaseCharacter> friends) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'step'");
     }
 }

@@ -62,5 +62,11 @@ public class Crossbowman extends BaseCharacter {
         BaseCharacter target =nearestEnemy(enemy);
         target.getHit(this.powerHit);
         countArrow--;
+    }
+
+    @Override
+    public void step(List<BaseCharacter> list, List<BaseCharacter> friends) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'step'");
     }    
 }
