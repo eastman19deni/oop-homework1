@@ -50,7 +50,7 @@ public abstract class BaseCharacter implements MyInterface {
     public int getStamina(){return stamina;}
 
     public String toString(){
-        return String.format("Class: %s  Name: %s hp: %s, Position %s", getClass().getSimpleName(), getName(), getHealth(), position.getPosition());
+        return name +  ", Hp: " + health + ", 🗡️: ";
     }
 
     public Boolean getStatus(){return status;}
@@ -76,7 +76,7 @@ public abstract class BaseCharacter implements MyInterface {
     }
     public BaseCharacter nearestEnemy(List<BaseCharacter> targets){
         BaseCharacter target=null;
-        double minDistance = 10;
+        double minDistance = Double.MAX_VALUE;
         for(BaseCharacter hero : targets){
             if(position.getDistanse(hero) < minDistance && hero.isDead()){
                 minDistance = position.getDistanse(hero);
