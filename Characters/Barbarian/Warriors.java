@@ -2,19 +2,21 @@ import java.util.List;
 
 
 public abstract class Warriors extends BaseCharacter{
-    protected int anger;
+    protected int rage;
     protected Position position;
+    protected int resistance;
+    protected int steal;
 
     public Warriors(String name, Integer x, Integer y) {
         super(name, x, y);
-        this.anger = 30;
+        this.rage = 20;
         this.speed = 2;
         this.position = new Position(x, y);
     }
 
     public void att(BaseCharacter target) {
         int damage = r.nextInt(5);
-        this.anger--;
+        this.rage--;
         target.GetDamage(damage);
     }
 

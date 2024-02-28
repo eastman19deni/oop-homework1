@@ -7,11 +7,13 @@ public class Sniper extends Bows{
         this.arrows = 5;
     }
 
-    @Override
     public void death() {
         if (this.getHealth() < 1) {
             System.out.println("Неточность - вежливость снайперов и это моя последняя...");
         }
     }
-  
+
+    public String getInfo() {
+        return "Sniper";
+    }
 }

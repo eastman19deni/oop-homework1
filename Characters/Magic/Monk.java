@@ -2,10 +2,7 @@
 import java.util.List;
 import java.util.Scanner;
 
-public class Monk extends BaseCharacter{
-    protected int faith;
-
-    
+public class Monk extends Witchers{
 
     public Monk(String name, Integer x, Integer y) {
         super(name, x, y);

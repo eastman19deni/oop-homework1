@@ -2,6 +2,9 @@ import java.util.List;
 
 public class Witchers extends BaseCharacter{
 
+    protected int mana;
+    protected int faith;
+    
     public Witchers(String name, Integer x, Integer y) {
         super(name, x, y);
         this.speed = 1;
