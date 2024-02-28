@@ -1,6 +1,4 @@
 
-import java.util.List;
-
 public class Wizard extends Witchers{
 
     public Wizard(String name, Integer x, Integer y) {
