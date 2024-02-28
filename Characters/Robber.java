@@ -20,5 +20,10 @@ public class Robber extends BaseCharacter{
             System.out.println("you were the best but not like pro");
         }
     }
+    @Override
+    public String getInfo() {
+
+        return "Robber";
+    }
 
 }
