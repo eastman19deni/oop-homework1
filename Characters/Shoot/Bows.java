@@ -21,12 +21,9 @@ abstract public class Bows extends BaseCharacter {
 
     public void step(List<BaseCharacter> list, List<BaseCharacter> friends) {
 
-        if (!isDead() || getArrows() <= 0) return;
+        if (!isDead() || getArrows() <= 0 || getHealth() <= 0) return;
             att(nearestEnemy(list));
             System.out.println(toString());
 
     }
-        
-    
-    
 }
