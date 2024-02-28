@@ -1,6 +1,4 @@
 
-import java.util.List;
-
 public class Warrior extends Warriors {
 
 
@@ -14,7 +12,7 @@ public class Warrior extends Warriors {
             System.out.println("Press F");
         }
     }
-    
+
     public String getInfo(){
         return "Warrior";
     }
