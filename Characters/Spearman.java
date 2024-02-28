@@ -15,5 +15,9 @@ public class Spearman extends BaseCharacter{
     public void step(List<BaseCharacter> list, List<BaseCharacter> friends) {
 
     }
+    
+    public String getInfo(){
+        return "Spearman";
+    }
 
 }
