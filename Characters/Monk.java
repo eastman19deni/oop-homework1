@@ -1,48 +1,59 @@
-import java.util.ArrayList;
+
 import java.util.List;
+import java.util.Scanner;
 
 public class Monk extends BaseCharacter{
-    int faith;
+    protected int faith;
 
-    public Monk(String name,Integer x, Integer y) {
-        super(1, name, 50, 30, 20, 20, true, x, y);
+    
+
+    public Monk(String name, Integer x, Integer y) {
+        super(name, x, y);
     }
+
 
     public int getFaith() {
         return faith;
     }
+    public void setFaith(int faith){ this.faith = faith;}
 
-    @Override
-    public void attack(BaseCharacter target) {
-        // TODO Auto-generated method stub
-        super.attack(target);
+    public void toHeal(BaseCharacter target){
+        int damage = r.nextInt(5);
+        setFaith(getFaith()- damage);
+        target.GetDamage(damage * -1);
     }
 
-    @Override
-    public void death(BaseCharacter target) {
-        // TODO Auto-generated method stub
-        super.death(target);
-    }
-
-    @Override
-    public void getDamage(int damage) {
-        if(target.getHealth() - damage >0){
-            health -= damage;
-        }else{
-            super.death(target);
+    public void death(){
+        if(this.getHealth() < 1){
+            System.out.println("God bleashed him!");
         }
-        super.getDamage(damage);
     }
 
-    @Override
-    public void step(ArrayList<BaseCharacter> enemy) {
-        // TODO Auto-generated method stub
-        
-    }
-
-    @Override
-    public void step(List<BaseCharacter> list, List<BaseCharacter> friends) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'step'");
+    public void step(List<BaseCharacter> targets, List<BaseCharacter> friends) {
+        Scanner scan = new Scanner(System.in);
+        String oneStep = scan.nextLine();
+                
+            if (oneStep == "") {
+                        
+                if (!isDead()) return;
+                    BaseCharacter unit = nearestEnemy(friends);
+                    if (position.getDistanse(unit) < 2) {
+                        toHeal(unit);
+                        System.out.println(toString());
+                        return;
+                    }
+                    Position diff = this.position.getDiff(unit.position);
+                    Position currentPos = new Position(position.getX(), position.getY());
+                    if (Math.abs(diff.getX()) >  Math.abs(diff.getY())){
+                        position.setX(position.getX() + diff.getX() > 0 ? 1 : -1);
+                        System.out.println(toString());
+                    } else position.setY(position.getY() + diff.getY() > 0 ? 1 : -1);
+                        System.out.println(toString());
+                    targets.forEach(n -> {
+                        if (n.position.equals(position)) {
+                            this.position = currentPos;
+                        }
+                    });
+            }else return;
     }
 }

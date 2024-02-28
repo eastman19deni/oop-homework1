@@ -1,3 +1,4 @@
+
 //  Проанализировать персонажей "Крестьянин, Разбойник, Снайпер, Колдун, Копейщик, Арбалетчик, Монах".
 //  Для каждого определит 8 полей данных(здоровье, сила итд) 3-4 поля поведения(методов атаковать, вылечить итд). 
 //  Создать абстрактный класс и иерархию наследников. Расположить классы в пакет так, чтобы в основной программе небыло видно их полей.
@@ -32,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+
 public class main {
     public static void main(String[] args) {
 
@@ -63,20 +65,21 @@ public class main {
         System.out.println("-".repeat(56));
 
         Scanner scan = new Scanner(System.in);
-        boolean work = true;                
-        while (work) { 
-            if (scan.nextLine() == ""){                         
-        
+        boolean work = true;
+        while (work) {
+            if (scan.nextLine() == "") {
+
                 for (BaseCharacter element : all) {
                     if (team1.contains(element)) {
                         element.step(team2, team1);
-                    } else
+                    } else {
                         element.step(team1, team2);
+                    }
                 }
-            } else work = false;       
+            } else
+                work = false;
         }
         scan.close();
-        
 
         for (BaseCharacter unit : all) {
             System.out.printf("Имя: %s, Здоровье: %d, Класс: %s, Координаты: %d,%d\n", unit.getName(), unit.getHealth(),
@@ -121,6 +124,8 @@ public class main {
                 case 7:
                     team.add(new Spearman(fillName(), i, y));
                     break;
+                case 8:
+                    team.add(new Robber(fillName(), i, y));
             }
         }
         return team;

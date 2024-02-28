@@ -1,7 +1,4 @@
 
-import java.util.ArrayList;
-
-
 
 public class Sniper extends Bows{    
 
@@ -16,13 +13,5 @@ public class Sniper extends Bows{
             System.out.println("Неточность - вежливость снайперов и это моя последняя...");
         }
     }
-
-    @Override
-    public void step(ArrayList<BaseCharacter> enemy) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'step'");
-    }    
-
-
-    
+  
 }
