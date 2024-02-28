@@ -24,6 +24,9 @@ public class Warrior extends BaseCharacter {
             System.out.println("Press F");
         }
     }
+    public String getInfo(){
+        return "Warrior";
+    }
 
     public void step(List<BaseCharacter> targets, List<BaseCharacter> friends) {
         if (getHealth() < 0)
