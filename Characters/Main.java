@@ -29,19 +29,27 @@
  * --------------------------------------------------------------
  */
 
+// import Characters.Barbarian.Robber;
+// import Characters.Barbarian.Spearman;
+// import Characters.Barbarian.Warrior;
+// import Characters.Magic.Monk;
+// import Characters.Magic.Wizard;
+// import Characters.Shoot.Crossbowman;
+// import Characters.Shoot.Sniper;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+public class Main{
+    public static List<BaseCharacter> BlessedTeam = new ArrayList<>(teamCreator(1));
+    public static List<BaseCharacter> DevilTeam = new ArrayList<>(teamCreator(10));
+    public static ArrayList<BaseCharacter> allTeam = new ArrayList<>();
 
-public class main {
-    public static void main(String[] args) {
-
-        List<BaseCharacter> team1 = new ArrayList<>(teamCreator(0));
-        List<BaseCharacter> team2 = new ArrayList<>(teamCreator(9));
+    public static void Main(String[] args) {
 
         System.out.println("Команда №1: ");
-        for (BaseCharacter unit : team1) {
+        for (BaseCharacter unit : BlessedTeam) {
             System.out.printf("Имя: %s, Класс: %s, Здоровье: %d, Координаты: %d,%d\n", unit.getName(),
                     unit.getClass().getSimpleName(), unit.getHealth(), unit.position.getX(), unit.position.getY());
         }
@@ -49,48 +57,52 @@ public class main {
         System.out.println();
 
         System.out.println("Команда №2: ");
-        for (BaseCharacter unit : team2) {
+        for (BaseCharacter unit : DevilTeam) {
             System.out.printf("Имя: %s, Класс: %s, Здоровье: %d, Координаты: %d,%d\n", unit.getName(),
                     unit.getClass().getSimpleName(), unit.getHealth(), unit.position.getX(), unit.position.getY());
         }
 
         System.out.println();
 
-        ArrayList<BaseCharacter> all = new ArrayList<>();
-        all.addAll(team1);
-        all.addAll(team2);
+        allTeam.addAll(BlessedTeam);
+        allTeam.addAll(DevilTeam);
 
-        all.sort((o1, o2) -> o2.getSpeed() - o1.getSpeed());
-
-        System.out.println("-".repeat(56));
-
-        Scanner scan = new Scanner(System.in);
-        boolean work = true;
-        while (work) {
-            if (scan.nextLine() == "") {
-
-                for (BaseCharacter element : all) {
-                    if (team1.contains(element)) {
-                        element.step(team2, team1);
-                    } else {
-                        element.step(team1, team2);
-                    }
-                }
-            } else
-                work = false;
-        }
-        scan.close();
-
-        for (BaseCharacter unit : all) {
-            System.out.printf("Имя: %s, Здоровье: %d, Класс: %s, Координаты: %d,%d\n", unit.getName(), unit.getHealth(),
-                    unit.getClass().getSimpleName(), unit.position.getX(), unit.position.getY());
-        }
-
-        System.out.println();
+        allTeam.sort((o1, o2) -> o2.getSpeed() - o1.getSpeed());
 
         System.out.println("-".repeat(56));
+        Scanner scanner = new Scanner(System.in);
+        boolean flag = true;
+        while (true) {
 
-        System.out.println(all.get(0).nearestEnemy(team2).toString());
+            View.view();
+            scanner.nextLine();
+            int summ1HP = 0;
+            int summ2HP = 0;
+            for (BaseCharacter unit : BlessedTeam) {
+                summ1HP += unit.getHealth();
+            }
+            for (BaseCharacter unit : DevilTeam) {
+                summ2HP += unit.getHealth();
+            }
+            if (summ1HP == 0) {
+                System.out.println("Победила команда darkTeam");
+                flag = false;
+                break;
+            }
+            if (summ2HP == 0) {
+                System.out.println("Победила команда holyTeam");
+                flag = false;
+                break;
+            }
+            for (BaseCharacter unit : allTeam) {
+                if (BlessedTeam.contains(unit))
+                    unit.step(DevilTeam, BlessedTeam);
+                else
+                    unit.step(BlessedTeam, DevilTeam);
+            }
+
+        }
+        scanner.close();
 
     }
 
@@ -101,8 +113,8 @@ public class main {
     private static ArrayList<BaseCharacter> teamCreator(int y) {
         ArrayList<BaseCharacter> team = new ArrayList<BaseCharacter>();
         int teamCount = 10;
-        for (int i = 0; i < teamCount; i++) {
-            switch (new Random().nextInt(1)) {
+        for (int i = 1; i < teamCount + 1; i++) {
+            switch (new Random().nextInt(9)) {
                 case 1:
                     team.add(new Monk(fillName(), i, y));
                     break;
@@ -130,5 +142,4 @@ public class main {
         }
         return team;
     }
-
 }

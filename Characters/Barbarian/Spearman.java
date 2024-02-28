@@ -1,4 +1,3 @@
-
 public class Spearman extends Warriors{
 
     public Spearman(String name, Integer x, Integer y) {

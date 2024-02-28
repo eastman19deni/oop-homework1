@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Witchers extends BaseCharacter{
+public abstract class Witchers extends BaseCharacter{
 
     protected int mana;
     protected int faith;

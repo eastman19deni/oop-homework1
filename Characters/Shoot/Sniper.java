@@ -1,5 +1,4 @@
 
-
 public class Sniper extends Bows{    
 
     public Sniper(String name, Integer x, Integer y) {
