@@ -1,5 +1,7 @@
 import java.util.Collections;
 
+
+
 public class View {
     private static int step = 1;
     private static final int[] l = {0};

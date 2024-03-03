@@ -1,4 +1,5 @@
 
+
 public class Warrior extends Warriors {
 
 
@@ -17,4 +18,11 @@ public class Warrior extends Warriors {
         return "Warrior";
     }
 
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
 }

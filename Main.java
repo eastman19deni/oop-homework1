@@ -29,25 +29,18 @@
  * --------------------------------------------------------------
  */
 
-// import Characters.Barbarian.Robber;
-// import Characters.Barbarian.Spearman;
-// import Characters.Barbarian.Warrior;
-// import Characters.Magic.Monk;
-// import Characters.Magic.Wizard;
-// import Characters.Shoot.Crossbowman;
-// import Characters.Shoot.Sniper;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-public class Main{
+
+public class Main {
     public static List<BaseCharacter> BlessedTeam = new ArrayList<>(teamCreator(1));
     public static List<BaseCharacter> DevilTeam = new ArrayList<>(teamCreator(10));
     public static ArrayList<BaseCharacter> allTeam = new ArrayList<>();
 
     public static void Main(String[] args) {
-
+        
         System.out.println("Команда №1: ");
         for (BaseCharacter unit : BlessedTeam) {
             System.out.printf("Имя: %s, Класс: %s, Здоровье: %d, Координаты: %d,%d\n", unit.getName(),

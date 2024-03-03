@@ -16,6 +16,7 @@ public abstract class BaseCharacter implements MyInterface {
     protected int speed;
     protected int agility;
     protected boolean status;
+    protected int powerHit;
 
     public List<BaseCharacter> units;
 
@@ -103,4 +104,14 @@ public abstract class BaseCharacter implements MyInterface {
     }
 
     public void att(BaseCharacter target){}
+
+    public void getHit(float damage) {
+        health -= damage;
+        if (health < 0) health = 0;
+        if (health > maxHealth) health = maxHealth;
+
+    }
+    public int getHp(){
+        return health;
+    }
 }

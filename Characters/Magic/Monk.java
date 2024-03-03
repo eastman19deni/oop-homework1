@@ -1,9 +1,8 @@
+import java.util.ArrayList;
 
-import java.util.List;
-import java.util.Scanner;
 
 public class Monk extends Witchers {
-
+    
     public Monk(String name, Integer x, Integer y) {
         super(name, x, y);
     }
@@ -32,35 +31,47 @@ public class Monk extends Witchers {
         return "Monk";
     }
 
-    public void step(List<BaseCharacter> targets, List<BaseCharacter> friends) {
-        Scanner scan = new Scanner(System.in);
-        String oneStep = scan.nextLine();
-
-        if (oneStep == "") {
-
-            if (!isDead())
-                return;
-            BaseCharacter unit = nearestEnemy(friends);
-            if (position.getDistanse(unit) < 2) {
-                toHeal(unit);
-                System.out.println(toString());
-                return;
-            }
-            Position diff = this.position.getDiff(unit.position);
-            Position currentPos = new Position(position.getX(), position.getY());
-            if (Math.abs(diff.getX()) > Math.abs(diff.getY())) {
-                position.setX(position.getX() + diff.getX() > 0 ? 1 : -1);
-                System.out.println(toString());
-            } else
-                position.setY(position.getY() + diff.getY() > 0 ? 1 : -1);
-            System.out.println(toString());
-            targets.forEach(n -> {
-                if (n.position.equals(position)) {
-                    this.position = currentPos;
-                }
-            });
-        } else
+    public void step(ArrayList<BaseCharacter> enemy, ArrayList<BaseCharacter> friend) {
+        if (getHp() <= 0)
             return;
+        ArrayList<BaseCharacter> sortlist = new ArrayList<>(friend);
+        ArrayList<BaseCharacter> deadlist = new ArrayList<>();
+        sortlist.sort((o1, o2) -> o1.getHp() - o2.getHp());
+        int countdead = 0;
+        for (BaseCharacter unit : sortlist) {
+            if (unit.getHp() == 0) {
+                deadlist.add(unit);
+                countdead++;
+            }
+        }
+        if (deadlist.size() > 3) {
+            flag = true;
+            System.out.println("Флаг установлен");
+        }
+
+        if (flag && mana == 10) {
+            deadlist.sort((o1, o2) -> o2.speed - o1.speed);
+            deadlist.get(0).health = maxHealth;
+            mana = 0;
+            System.out.println("Воскресил: " + deadlist.get(0).name);
+            flag = false;
+            return;
+        }
+        if (flag) {
+            mana++;
+            return;
+        }
+        if (mana < 2) {
+            mana++;
+            return;
+        }
+        sortlist.get(0).health += 10;
+        mana -= 2;
     }
 
+
+    @Override
+    public String toString() {
+        return super.toString() + ", Мана : " + mana;
+    }
 }
